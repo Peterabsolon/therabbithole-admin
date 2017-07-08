@@ -6,6 +6,7 @@
     "prod": "next build && next start",
     "build": "next build",
     "start": "NODE_PATH=. NODE_ENV=production node server.js",
+    "postinstall": "next build",
     "analyze": "cross-env ANALYZE=1 NODE_PATH=. NODE_ENV=production next build"
   },
   "dependencies": {
