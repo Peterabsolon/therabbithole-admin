@@ -49,6 +49,7 @@ export const ArticleList = types.model(
       if (typeof window !== 'undefined') {
         this.load()
       }
+      setInterval(() => this.load(), 10000)
     },
   }
 )
