@@ -26,8 +26,8 @@ function initApp(Child) {
 
     render() {
       return (
-        <Provider {...this.store} theme={themes}>
-          <ThemeProvider>
+        <Provider {...this.store}>
+          <ThemeProvider theme={themes}>
             <div>
               <Child {...this.props} />
               <DevTools />
