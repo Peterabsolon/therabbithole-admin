@@ -3,7 +3,7 @@ import { AppStore } from './models/AppStore'
 
 let store = null
 const stores = {
-  appStore: AppStore.create({ title: 'Mobx Starter kit' })
+  appStore: AppStore.create({ title: 'Mobx Starter kit' }),
 }
 
 if (process.env.NODE_ENV !== 'production') {

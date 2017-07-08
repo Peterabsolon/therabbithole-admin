@@ -8,17 +8,17 @@ export const Source = types.model('Source', {
   category: types.string,
   name: types.string,
   description: types.string,
-  url: types.string
+  url: types.string,
 })
 
 export const SourcesStore = types.model(
   'SourcesStore',
   {
     isLoading: types.optional(types.boolean, true),
-    sources: types.map(Source),
+    sources: types.array(Source),
     get app() {
       return getParent(this)
-    }
+    },
   },
   {
     load() {
@@ -33,16 +33,15 @@ export const SourcesStore = types.model(
       this.isLoading = loading
     },
     updateSources(json) {
+      this.sources = []
       json.map(item => {
-        if (!this.sources.toJSON()[item.id]) {
-          this.sources.put(item)
-        }
+        this.sources.push(item)
       })
     },
     afterCreate() {
       if (typeof window !== 'undefined') {
         this.load()
       }
-    }
+    },
   }
 )

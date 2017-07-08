@@ -1,23 +1,30 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Button } from 'rebass'
+import { Button, Select, Heading, Flex, Box } from 'rebass'
 
-const AppState = ({ appStore: { sourcesStore }, appStore }) =>
-  <div>
-    <h1>Appstore:</h1>
+const AppState = ({ appStore: { sourcesStore, articlesStore }, appStore }) => {
+  console.log('articlesStore', articlesStore)
+  return (
     <div>
-      <Button
-        disabled={sourcesStore.isLoading}
-        onClick={() => sourcesStore.load()}
-        children="fetch sources"
-      />
+      <Flex>
+        <Box px={3} width={[1, 1 / 2, 1 / 3]}>
+          <Heading mb={3} mt={3}>
+            Sources {sourcesStore.sources.length}
+          </Heading>
+          <Select
+            mb={3}
+            onChange={e => articlesStore.addSource(sourcesStore.sources[e.target.value])}
+          >
+            {sourcesStore.sources.map((item, index) =>
+              (<option key={item.id} value={index}>
+                {item.name}
+              </option>)
+            )}
+          </Select>
+        </Box>
+      </Flex>
     </div>
-    <pre>
-      {JSON.stringify(appStore, null, 2)}
-    </pre>
-    <p>
-      Sources size: {sourcesStore.sources.size}
-    </p>
-  </div>
+  )
+}
 
 export default inject('appStore')(observer(AppState))

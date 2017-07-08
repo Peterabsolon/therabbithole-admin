@@ -1,7 +1,12 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import { initStore } from 'store/create'
+
+// Theme
 import { Provider as ThemeProvider } from 'rebass'
+import themes from 'styles/themes'
+
+console.log('themes', themes)
 // TODO remove devtools from production
 import DevTools from 'mobx-react-devtools'
 
@@ -21,7 +26,7 @@ function initApp(Child) {
 
     render() {
       return (
-        <Provider {...this.store}>
+        <Provider {...this.store} theme={themes}>
           <ThemeProvider>
             <div>
               <Child {...this.props} />
