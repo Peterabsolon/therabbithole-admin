@@ -1,17 +1,45 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Button, Select, Heading, Flex, Box } from 'rebass'
+import {
+  Panel,
+  PanelHeader,
+  Subhead,
+  PanelFooter,
+  Button,
+  Select,
+  Heading,
+  Flex,
+  Box,
+  Toolbar,
+  NavLink
+} from 'rebass'
 import Card from './Card'
 
-const Articles = ({ article: { source, feed = [] } }) => {
+const Articles = ({ article: { source, feed = [], load, isLoading, remove } }) => {
   console.log('pro', source)
   return (
-    <Box px={3} width={[1]}>
-      <Heading children={source.name} />
-      <p>
-        Feed length {feed.length}
-        {feed.map(item => <Card key={item.title} article={item} />)}
-      </p>
+    <Box width={[1]}>
+      <Panel color="blue">
+        <Toolbar>
+          <NavLink>
+            {source.name}
+          </NavLink>
+          <NavLink disabled ml="auto">
+            {isLoading && 'loading'}
+          </NavLink>
+          <NavLink disabled onClick={() => load()}>
+            Reload
+          </NavLink>
+        </Toolbar>
+        <Box p={3}>
+          {feed.map(item => <Card key={item.title} article={item} />)}
+        </Box>
+        <Toolbar>
+          <NavLink ml="auto" disabled onClick={() => remove()}>
+            Remove
+          </NavLink>
+        </Toolbar>
+      </Panel>
     </Box>
   )
 }

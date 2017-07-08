@@ -1,4 +1,4 @@
-import { types, getParent, onSnapshot } from 'mobx-state-tree'
+import { types, getParent, onSnapshot, destroy } from 'mobx-state-tree'
 import ApiClient from 'helpers/store/apiClient'
 import { Source } from './SourcesStore'
 
@@ -11,7 +11,7 @@ export const FeedItem = types.model('FeedItem', {
   description: types.string,
   title: types.string,
   url: types.string,
-  urlToImage: types.string
+  urlToImage: types.string,
 })
 
 export const ArticleList = types.model(
@@ -19,15 +19,17 @@ export const ArticleList = types.model(
   {
     isLoading: types.optional(types.boolean, true),
     source: types.reference(Source),
-    feed: types.optional(types.array(FeedItem), [])
+    feed: types.optional(types.array(FeedItem), []),
   },
   {
     load() {
       this.markLoading(true)
-      console.log('fetch', this.source.id)
       client
         .get(`/articles?source=${this.source.id}&apiKey=3c6b44553e654c14b9b6a00fe7ba2e0a`)
         .then(this.receiveJson)
+    },
+    remove() {
+      destroy(this)
     },
     receiveJson(json) {
       this.markLoading(false)
@@ -47,7 +49,7 @@ export const ArticleList = types.model(
       if (typeof window !== 'undefined') {
         this.load()
       }
-    }
+    },
   }
 )
 
@@ -57,7 +59,7 @@ export const ArticlesStore = types.model(
     list: types.array(ArticleList),
     get app() {
       return getParent(this)
-    }
+    },
   },
   {
     addSource(source) {
@@ -65,6 +67,6 @@ export const ArticlesStore = types.model(
       if (!entry) {
         this.list.push({ source })
       }
-    }
+    },
   }
 )
