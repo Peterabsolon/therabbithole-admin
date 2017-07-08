@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "@strv/javascript/environments/nodejs/optional",
+    "@strv/javascript/environments/nodejs/v7",
+    "@strv/javascript/coding-styles/recommended",
+    "@strv/javascript/environments/react/v15",
+    "@strv/javascript/environments/react/optional",
+    "@strv/javascript/coding-styles/recommended"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "store", "components"]
+    }
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "react/prop-types": 0,
+    "max-len": 0
+  }
+}
