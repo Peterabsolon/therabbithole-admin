@@ -36,5 +36,8 @@
     "superagent": "^3.5.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack-bundle-analyzer": "^2.8.2"
+  },
+  "engines": {
+    "node": "8.1.3"
   }
 }
