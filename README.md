@@ -7,7 +7,9 @@
 - [ ] global config
 - [ ] mobx tree router sync
 - [ ] styled components (grid, structure, ui)
-- [ ] css normalizer ( -> injectGlobal)
+- [x] css normalizer ( -> injectGlobal)
 - [ ] jest
 - [ ] service worker generator
+- [ ] nightwatch screenshot tests
+- [ ] storybook
 - [ ] nightwatch screenshot tests

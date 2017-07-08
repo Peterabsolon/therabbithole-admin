@@ -1,8 +1,7 @@
 import { injectGlobal } from 'styled-components'
+import styledNormalize from 'styled-normalize'
 
 injectGlobal `
-  * {
-    margin: 0;
-    padding: 0;
-  }
+  ${styledNormalize}
+  
 `
