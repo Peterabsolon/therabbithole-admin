@@ -21,7 +21,7 @@
       "plugins": ["inline-dotenv"]
     },
     "production": {
-      "plugins": ["transform-inline-environment-variables"]
+      "plugins": ["inline-dotenv"]
     }
   }
 }
