@@ -7,13 +7,14 @@ const client = new ApiClient()
 describe('🗄 App Store', () => {
   it('Init', done => {
     const store = AppStore.create({ title: 'Mobx Starter kit' }, { apiClient: client })
+    store.sourcesStore.load()
     expect(store).toMatchSnapshot()
-    // when(
-    //   () => !store.isLoading,
-    //   () => {
-    //     expect(store).toMatchSnapshot()
-    //     done()
-    //   }
-    // )
+    when(
+      () => !store.sourcesStore.isLoading,
+      () => {
+        expect(store).toMatchSnapshot()
+        done()
+      }
+    )
   })
 })

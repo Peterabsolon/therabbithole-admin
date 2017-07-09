@@ -17,3 +17,29 @@ Object {
   "title": "Mobx Starter kit",
 }
 `;
+
+exports[`🗄 App Store Init 2`] = `
+Object {
+  "articlesStore": Object {
+    "list": Array [],
+  },
+  "isLoading": true,
+  "router": Object {
+    "params": "",
+    "pathname": "",
+  },
+  "sourcesStore": Object {
+    "isLoading": false,
+    "sources": Array [
+      Object {
+        "category": undefined,
+        "description": "description",
+        "id": "abc",
+        "name": undefined,
+        "url": "url",
+      },
+    ],
+  },
+  "title": "Mobx Starter kit",
+}
+`;

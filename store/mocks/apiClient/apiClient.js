@@ -9,7 +9,6 @@ export default class ApiClient {
             const filename = 'get-sources'
 
             import(`../${filename}.js`).then(module => {
-              console.log('resolve sources', this)
               resolve(module.default)
             })
           })
