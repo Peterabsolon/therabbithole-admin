@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`🗄 App Store Init 1`] = `
+Object {
+  "articlesStore": Object {
+    "list": Array [],
+  },
+  "isLoading": true,
+  "router": Object {
+    "params": "",
+    "pathname": "",
+  },
+  "sourcesStore": Object {
+    "isLoading": true,
+    "sources": Array [],
+  },
+  "title": "Mobx Starter kit",
+}
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`🗄 Router Store Create with pathname 1`] = `
+Object {
+  "params": "",
+  "pathname": "/test",
+}
+`;
+
+exports[`🗄 Router Store Init 1`] = `
+Object {
+  "params": "",
+  "pathname": "",
+}
+`;
+
+exports[`🗄 Router Store Open page 1`] = `
+Object {
+  "params": "",
+  "pathname": "/contact",
+}
+`;

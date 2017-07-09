@@ -8,7 +8,7 @@ export const RouterStore = types.model(
   },
   {
     openContactPage() {
-      this.page = 'contact'
+      this.pathname = '/contact'
     },
     init(pathname, params = '') {
       this.pathname = pathname

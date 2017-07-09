@@ -39,7 +39,7 @@ export const SourcesStore = types.model(
       })
     },
     afterCreate() {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'test') {
         this.load()
       }
     },

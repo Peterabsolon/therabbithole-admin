@@ -6,8 +6,9 @@
     "prod": "next build && next start",
     "build": "next build",
     "start": "NODE_PATH=. NODE_ENV=production node server.js",
-    "postinstall": "next build",
-    "analyze": "cross-env ANALYZE=1 NODE_PATH=. NODE_ENV=production next build"
+    "heroku-postbuild": "next build",
+    "analyze": "cross-env ANALYZE=1 NODE_PATH=. NODE_ENV=production next build",
+    "test": "jest"
   },
   "dependencies": {
     "@strv/eslint-config-javascript": "^7.1.0",
@@ -19,6 +20,7 @@
     "cross-env": "^5.0.1",
     "eslint": "^4.1.1",
     "express": "^4.15.3",
+    "jest": "^20.0.4",
     "localforage": "^1.5.0",
     "mobx": "^3.2.0",
     "mobx-react": "^4.2.2",
@@ -30,6 +32,7 @@
     "preact-compat": "^3.16.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
     "rebass": "^1.0.0-4",
     "remotedev": "^0.2.7",
     "styled-components": "^2.1.1",
