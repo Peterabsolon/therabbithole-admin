@@ -6,7 +6,7 @@ const client = new ApiClient()
 
 export const FeedItem = types.model('FeedItem', {
   id: types.identifier(),
-  author: types.string,
+  author: types.maybe(types.string),
   publishedAt: types.string,
   description: types.string,
   title: types.string,

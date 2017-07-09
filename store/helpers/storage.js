@@ -1,10 +1,10 @@
 import { onSnapshot, applySnapshot } from 'mobx-state-tree'
 
-const persist = (model, data, key = 'app-snapshot') => {
+const persist = (model, data, key = 'snap') => {
   if (typeof window === 'undefined') {
     return false
   }
-  const received = localStorage.getItem(key)
+  const received = localStorage[key]
   onSnapshot(model, snapshot => {
     localStorage.setItem(key, JSON.stringify(snapshot))
   })
