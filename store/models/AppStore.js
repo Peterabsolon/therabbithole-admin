@@ -2,8 +2,9 @@ import { types } from 'mobx-state-tree'
 import { SourcesStore } from './SourcesStore'
 import { RouterStore } from './RouterStore'
 import { ArticlesStore } from './ArticlesStore'
+import config from 'config'
 
-// import storage from 'store/helpers/storage'
+import storage from 'store/helpers/storage'
 
 export const AppStore = types.model(
   'AppStore',
@@ -25,10 +26,14 @@ export const AppStore = types.model(
     markLoading(loading) {
       this.isLoading = loading
     },
+    reset() {
+      storage.clear(this)
+      this.sourcesStore.load()
+    },
     afterCreate() {
-      // if (process.env.NODE_ENV === 'production') {
-      //   storage.persist(this)
-      // }
+      if (config.localStorage) {
+        storage.persist(this)
+      }
     },
   }
 )

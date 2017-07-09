@@ -16,11 +16,12 @@ const AppState = ({ appStore: { sourcesStore, articlesStore }, appStore }) => {
             onChange={e => articlesStore.addSource(sourcesStore.sources[e.target.value])}
           >
             {sourcesStore.sources.map((item, index) =>
-              (<option key={item.id} value={index}>
+              <option key={item.id} value={index}>
                 {item.name}
-              </option>)
+              </option>
             )}
           </Select>
+          <Button onClick={() => appStore.reset()} children="Reset app" />
         </Box>
       </Flex>
     </div>
