@@ -1,33 +1,28 @@
 import { onSnapshot, applySnapshot, getSnapshot } from 'mobx-state-tree'
+import { AppStore } from '../models/AppStore'
 
-let initial = null
-
-const clear = (model, key = 'app-snapshot') => {
+const clear = model => {
   if (typeof window === 'undefined') {
     return false
   }
 
-  localStorage.setItem(key, initial)
+  const newStore = AppStore.create({ title: 'new app' })
 
-  applySnapshot(model, JSON.parse(initial))
+  console.log(getSnapshot(newStore))
+  // applySnapshot(model, getSnapshot(AppStore.create({ title: 'new app' })))
 }
 
 const persist = (model, data, key = 'app-snapshot') => {
   if (typeof window === 'undefined') {
     return false
   }
-
-  initial = JSON.stringify(getSnapshot(model))
-
   const received = localStorage.getItem(key)
-
   onSnapshot(model, snapshot => {
     localStorage.setItem(key, JSON.stringify(snapshot))
   })
-
   if (received) {
     model.markLoading(true)
-    applySnapshot(model, JSON.parse(received))
+    // applySnapshot(model, JSON.parse(received))
   }
   model.markLoading(false)
 }
