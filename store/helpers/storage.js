@@ -9,7 +9,7 @@ const clear = (model, key = 'app-snapshot') => {
 
   localStorage.setItem(key, JSON.stringify({ title: 'app' }))
 
-  applySnapshot(model, initial)
+  applySnapshot(model, JSON.parse(initial))
 }
 
 const persist = (model, data, key = 'app-snapshot') => {
@@ -17,7 +17,7 @@ const persist = (model, data, key = 'app-snapshot') => {
     return false
   }
 
-  initial = getSnapshot(model)
+  initial = JSON.stringify(getSnapshot(model))
 
   const received = localStorage.getItem(key)
 
