@@ -1,8 +1,19 @@
 import { AppStore } from '../AppStore'
+import ApiClient from 'store/mocks/apiClient/apiClient'
+import { when } from 'mobx'
+
+const client = new ApiClient()
 
 describe('🗄 App Store', () => {
-  it('Init', () => {
-    const store = AppStore.create({ title: 'Mobx Starter kit' })
+  it('Init', done => {
+    const store = AppStore.create({ title: 'Mobx Starter kit' }, { apiClient: client })
     expect(store).toMatchSnapshot()
+    // when(
+    //   () => !store.isLoading,
+    //   () => {
+    //     expect(store).toMatchSnapshot()
+    //     done()
+    //   }
+    // )
   })
 })

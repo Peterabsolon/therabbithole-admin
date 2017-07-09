@@ -36,7 +36,7 @@ export const AppStore = types.model(
     },
     afterCreate() {
       if (config.localStorage) {
-        storage.persist(this)
+        // storage.persist(this)
       }
     },
   }

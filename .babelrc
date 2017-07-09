@@ -24,7 +24,8 @@
       "plugins": ["inline-dotenv"]
     },
     "test": {
-      "presets": [["env", { "modules": "commonjs" }], "next/babel"]
+      "presets": [["env", { "modules": "commonjs" }], "next/babel"],
+      "plugins": [["dynamic-import-node"]]
     }
   }
 }
