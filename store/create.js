@@ -1,10 +1,21 @@
 import { AppStore } from './models/AppStore'
+import { onAction, getSnapshot, applySnapshot } from 'mobx-state-tree'
 import config from 'config'
 
 let store = null
+
 const stores = {
   appStore: AppStore.create({ title: 'Mobx Starter kit' }),
 }
+
+const initialSnapshot = {}
+
+onAction(stores.appStore, action => {
+  if (action.name === 'reset') {
+    console.log('run', initialSnapshot)
+    applySnapshot(stores.appStore, { title: 'restart' })
+  }
+})
 
 if (!config.isProduction) {
   /* eslint-disable global-require */

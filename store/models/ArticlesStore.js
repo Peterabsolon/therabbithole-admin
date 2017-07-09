@@ -44,11 +44,18 @@ export const ArticleList = types.model(
         this.feed.push({ id: this.source.id, ...item })
       })
     },
-    afterCreate() {
+
+    afterAttach() {
       if (typeof window !== 'undefined') {
         this.load()
       }
-      setInterval(() => this.load(), 10000)
+      // setInterval(() => this.load(), 10000)
+    },
+    afterCreate() {
+      // if (typeof window !== 'undefined') {
+      //   this.load()
+      // }
+      // setInterval(() => this.load(), 10000)
     },
   }
 )

@@ -1,10 +1,12 @@
-import { types } from 'mobx-state-tree'
+import { types, getSnapshot, applySnapshot } from 'mobx-state-tree'
 import { SourcesStore } from './SourcesStore'
 import { RouterStore } from './RouterStore'
 import { ArticlesStore } from './ArticlesStore'
 import config from 'config'
 
 import storage from 'store/helpers/storage'
+
+const initial = {}
 
 export const AppStore = types.model(
   'AppStore',
@@ -27,7 +29,6 @@ export const AppStore = types.model(
       this.isLoading = loading
     },
     reset() {
-      storage.clear(this)
       this.sourcesStore.load()
     },
     afterCreate() {
