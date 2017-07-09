@@ -19,7 +19,7 @@ const AppState = ({ appStore: { sourcesStore, articlesStore }, appStore }) =>
             </option>)
           )}
         </Select>
-        <Button onClick={() => appStore.reset()} children="Reset app" />
+        <Button mb={3} onClick={() => appStore.reset()} children="Reset app" />
       </Box>
     </Flex>
   </div>)

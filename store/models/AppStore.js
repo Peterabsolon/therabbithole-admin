@@ -1,4 +1,4 @@
-import { types, getSnapshot, applySnapshot } from 'mobx-state-tree'
+import { types, getSnapshot, applySnapshot, getEnv } from 'mobx-state-tree'
 import { SourcesStore } from './SourcesStore'
 import { RouterStore } from './RouterStore'
 import { ArticlesStore } from './ArticlesStore'
@@ -23,6 +23,9 @@ export const AppStore = types.model(
       pathname: '',
       params: '',
     }),
+    get apiClient() {
+      return getEnv(this).apiClient
+    },
   },
   {
     markLoading(loading) {

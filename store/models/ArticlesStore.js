@@ -1,13 +1,10 @@
-import { types, getParent, onSnapshot, destroy } from 'mobx-state-tree'
-import ApiClient from 'helpers/store/apiClient'
+import { types, getParent, onSnapshot, destroy, isAlive, detach, getEnv } from 'mobx-state-tree'
 import { Source } from './SourcesStore'
-
-const client = new ApiClient()
 
 export const FeedItem = types.model('FeedItem', {
   id: types.identifier(),
   author: types.maybe(types.string),
-  publishedAt: types.string,
+  publishedAt: types.maybe(types.string),
   description: types.string,
   title: types.string,
   url: types.string,
@@ -24,11 +21,13 @@ export const ArticleList = types.model(
   {
     load() {
       this.markLoading(true)
-      client
+      getEnv(this).apiClient
         .get(`/articles?source=${this.source.id}&apiKey=3c6b44553e654c14b9b6a00fe7ba2e0a`)
         .then(this.receiveJson)
     },
     remove() {
+      console.log('remove', getEnv(this))
+
       destroy(this)
     },
     receiveJson(json) {

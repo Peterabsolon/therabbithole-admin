@@ -2,10 +2,14 @@ import { AppStore } from './models/AppStore'
 import { onAction, getSnapshot, applySnapshot } from 'mobx-state-tree'
 import config from 'config'
 
+import ApiClient from 'helpers/store/apiClient'
+
+const client = new ApiClient()
+
 let store = null
 
 const stores = {
-  appStore: AppStore.create({ title: 'Mobx Starter kit' }),
+  appStore: AppStore.create({ title: 'Mobx Starter kit' }, { apiClient: client }),
 }
 
 const initialSnapshot = {}

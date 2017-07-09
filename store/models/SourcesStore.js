@@ -1,7 +1,4 @@
 import { types, getParent, onSnapshot } from 'mobx-state-tree'
-import ApiClient from 'helpers/store/apiClient'
-
-const client = new ApiClient()
 
 export const Source = types.model('Source', {
   id: types.identifier(),
@@ -23,7 +20,7 @@ export const SourcesStore = types.model(
   {
     load() {
       this.markLoading(true)
-      client.get('/sources?language=en').then(this.receiveJson)
+      this.app.apiClient.get('/sources?language=en').then(this.receiveJson)
     },
     receiveJson(json) {
       this.markLoading(false)
@@ -39,7 +36,7 @@ export const SourcesStore = types.model(
       })
     },
     afterCreate() {
-      if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'test') {
+      if (typeof window !== 'undefined') {
         this.load()
       }
     },

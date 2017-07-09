@@ -3,7 +3,7 @@
 const environment = {
   development: {
     isProduction: false,
-    localStorage: true,
+    localStorage: false,
   },
   test: {
     isProduction: false,
@@ -11,7 +11,7 @@ const environment = {
   },
   production: {
     isProduction: true,
-    localStorage: true,
+    localStorage: false,
   },
 }[process.env.NODE_ENV || 'development']
 
