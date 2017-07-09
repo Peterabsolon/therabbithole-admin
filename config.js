@@ -1,16 +1,18 @@
+/* eslint-disable no-process-env */
+
 const environment = {
   development: {
     isProduction: false,
-    localStorage: true
+    localStorage: true,
   },
   test: {
     isProduction: false,
-    localStorage: false
+    localStorage: false,
   },
   production: {
     isProduction: true,
-    localStorage: true
-  }
+    localStorage: true,
+  },
 }[process.env.NODE_ENV || 'development']
 
 module.exports = Object.assign(
@@ -34,10 +36,10 @@ module.exports = Object.assign(
           { property: 'og:site', content: '---' },
           { property: 'og:creator', content: 'Techloop.io' },
           { property: 'og:image:width', content: '200' },
-          { property: 'og:image:height', content: '200' }
-        ]
-      }
-    }
+          { property: 'og:image:height', content: '200' },
+        ],
+      },
+    },
   },
   environment
 )

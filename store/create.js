@@ -1,12 +1,13 @@
-//
 import { AppStore } from './models/AppStore'
+import config from 'config'
 
 let store = null
 const stores = {
   appStore: AppStore.create({ title: 'Mobx Starter kit' }),
 }
 
-if (process.env.NODE_ENV !== 'production') {
+if (!config.isProduction) {
+  /* eslint-disable global-require */
   const devtools = require('mobx-state-tree')
   devtools.connectReduxDevtools(require('remotedev'), stores.appStore)
 }

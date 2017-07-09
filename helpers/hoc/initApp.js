@@ -7,7 +7,7 @@ import { Provider as ThemeProvider } from 'rebass'
 import themes from 'styles/themes'
 
 console.log('themes', themes)
-// TODO remove devtools from production
+
 import DevTools from 'mobx-react-devtools'
 
 function initApp(Child) {

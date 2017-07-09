@@ -26,6 +26,6 @@
   "rules": {
     "react/prop-types": 0,
     "max-len": 0,
-    "template-tag-spacing": 0,
+    "template-tag-spacing": 0
   }
 }

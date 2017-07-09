@@ -41,7 +41,6 @@ export const ArticleList = types.model(
     updateSources(json) {
       this.feed = []
       json.map(item => {
-        console.log('push item', item)
         this.feed.push({ id: this.source.id, ...item })
       })
     },
