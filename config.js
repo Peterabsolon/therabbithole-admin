@@ -11,7 +11,7 @@ const environment = {
   },
   production: {
     isProduction: true,
-    localStorage: false,
+    localStorage: true,
   },
 }[process.env.NODE_ENV || 'development']
 
