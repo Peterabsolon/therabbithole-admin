@@ -16,7 +16,6 @@ import {
 import Card from './Card'
 
 const Articles = ({ article: { source, feed = [], load, isLoading, remove } }) => {
-  console.log('pro', source)
   return (
     <Box width={[1]}>
       <Panel color="blue">
@@ -31,7 +30,7 @@ const Articles = ({ article: { source, feed = [], load, isLoading, remove } }) =
             Reload
           </NavLink>
         </Toolbar>
-        <Box p={3}>
+        <Box>
           {feed.map(item => <Card key={item.title} article={item} />)}
         </Box>
         <Toolbar>
