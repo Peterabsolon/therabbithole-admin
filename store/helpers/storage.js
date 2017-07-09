@@ -7,7 +7,7 @@ const clear = (model, key = 'app-snapshot') => {
     return false
   }
 
-  localStorage.setItem(key, JSON.stringify({ title: 'app' }))
+  localStorage.setItem(key, initial)
 
   applySnapshot(model, JSON.parse(initial))
 }
