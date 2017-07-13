@@ -1,7 +1,6 @@
+import superagent from 'superagent'
 
-import superagent from 'superagent';
-
-const methods = ['get', 'post', 'put', 'patch', 'del'];
+const methods = ['get', 'post', 'put', 'patch', 'del']
 
 function formatUrl(path) {
   // const adjustedPath = path[0] !== '/' ? '/' + path : path;
@@ -10,25 +9,29 @@ function formatUrl(path) {
   //   return 'http://' + config.apiHost + ':' + config.apiPort + adjustedPath;
   // }
   // Prepend `/api` to relative URL, to proxy to API server.
-  return process.env.API_URL + path;
+
+  return process.env.API_URL + path
 }
 
 export default class ApiClient {
   constructor(req) {
-    methods.forEach((method) =>
-      this[method] = (path, { params, data } = {}) => new Promise((resolve, reject) => {
-        const request = superagent[method](formatUrl(path));
+    methods.forEach(
+      method =>
+        this[method] = (path, { params, data } = {}) =>
+          new Promise((resolve, reject) => {
+            const request = superagent[method](formatUrl(path))
 
-        if (params) {
-          request.query(params);
-        }
+            if (params) {
+              request.query(params)
+            }
 
-        if (data) {
-          request.send(data);
-        }
+            if (data) {
+              request.send(data)
+            }
 
-        request.end((err, { body } = {}) => err ? reject(body || err) : resolve(body));
-      }));
+            request.end((err, { body } = {}) => err ? reject(body || err) : resolve(body))
+          })
+    )
   }
-  empty() { }
+  empty() {}
 }
