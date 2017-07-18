@@ -5,7 +5,7 @@ import Card from './Card'
 
 const Articles = ({ article: { source, feed = [], load, isLoading, remove } }) =>
   (<Box width={[1]}>
-    <Panel color="blue">
+    <Panel color="primary">
       <Toolbar>
         <NavLink>
           {source.name}

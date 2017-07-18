@@ -12,5 +12,4 @@
 - [ ] setup jest client mockups
 - [ ] service worker generator
 - [ ] nightwatch screenshot tests
-- [ ] storybook
-- [ ] nightwatch screenshot tests
+- [x] storybook

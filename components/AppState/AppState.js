@@ -11,6 +11,7 @@ const AppState = ({ appStore: { sourcesStore, articlesStore }, appStore }) =>
         </Heading>
         <Select
           mb={3}
+          bg="white"
           onChange={el => articlesStore.addSource(sourcesStore.sources[el.target.value])}
         >
           {sourcesStore.sources.map((item, index) =>
@@ -19,7 +20,7 @@ const AppState = ({ appStore: { sourcesStore, articlesStore }, appStore }) =>
             </option>)
           )}
         </Select>
-        <Button mb={3} onClick={() => appStore.reset()} children="Reset app" />
+        <Button bg="action" mb={3} onClick={() => appStore.reset()} children="Reset app" />
       </Box>
     </Flex>
   </div>)

@@ -23,8 +23,8 @@ onAction(stores.appStore, action => {
 
 if (!config.isProduction) {
   /* eslint-disable global-require */
-  const devtools = require('mobx-state-tree')
-  devtools.connectReduxDevtools(require('remotedev'), stores.appStore)
+  // const devtools = require('mobx-state-tree')
+  // devtools.connectReduxDevtools(require('remotedev'), stores.appStore)
 }
 
 export function initStore(isServer, pathname, query) {

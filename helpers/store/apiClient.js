@@ -21,6 +21,7 @@ export default class ApiClient {
           new Promise((resolve, reject) => {
             const request = superagent[method](formatUrl(path))
 
+            
             if (params) {
               request.query(params)
             }

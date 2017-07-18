@@ -4,9 +4,7 @@ import { initStore } from 'store/create'
 
 // Theme
 import { Provider as ThemeProvider } from 'rebass'
-import themes from 'styles/themes'
-
-console.log('themes', themes)
+import defaultTheme from 'styles/theme/defaultTheme'
 
 import DevTools from 'mobx-react-devtools'
 
@@ -27,7 +25,7 @@ function initApp(Child) {
     render() {
       return (
         <Provider {...this.store}>
-          <ThemeProvider theme={themes}>
+          <ThemeProvider theme={defaultTheme}>
             <div>
               <Child {...this.props} />
               <DevTools />
