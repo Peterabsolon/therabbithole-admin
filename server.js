@@ -12,9 +12,10 @@ const handler = routes.getRequestHandler(app)
 
 app.prepare().then(() => {
   const server = express()
-  server.use(express.static('storybook-static'))
+  server.use('/storybook', express.static(`${__dirname}/storybook-static`))
+  server.use(express.static(`${__dirname}/`))
   server.get('/storybook', (req, res) => {
-    res.sendFile(path.join(__dirname, '.', '/storybook-static/index.html'))
+    res.sendFile(path.join(__dirname, '/storybook-static/index.html'))
   })
 
   server.use(handler)
