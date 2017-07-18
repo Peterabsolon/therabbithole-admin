@@ -1,9 +1,17 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import FeedPanel from './FeedPanel'
-import initStories from 'helpers/hoc/initStories'
 
 storiesOf('FeedPanel', module)
-  .addDecorator(story => initStories(story()))
-  .add('without props', () => <FeedPanel />)
-  .add('with some props', () => <FeedPanel text="The Comp" />)
+  .addWithInfo('empty', () =>
+    (<FeedPanel
+      source={{ name: STORYBOOK.knobs.text('Source Name', '<Source Name>') }}
+      isLoading={STORYBOOK.knobs.boolean('IsLoading', false)}
+    />)
+  )
+  .addWithInfo('with articles', () =>
+    (<FeedPanel
+      source={{ name: STORYBOOK.knobs.text('Source Name', '<Source Name>') }}
+      isLoading={STORYBOOK.knobs.boolean('IsLoading', false)}
+    />)
+  )
