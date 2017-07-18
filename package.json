@@ -11,7 +11,7 @@
     "analyze": "cross-env ANALYZE=1 NODE_PATH=. NODE_ENV=production next build",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o ${PWD}/storybook-static"
   },
   "dependencies": {
     "@storybook/addon-backgrounds": "^3.0.0",
