@@ -5,6 +5,9 @@ import styled from 'styled-components'
 
 const Wrapper = styled.footer`
   min-height: ${props => props.minHeight ? 'auto' : '100vh'};
+  & .css-z33529 > div > div {
+    min-height: 100vh;
+  }
 `
 // Theme
 import defaultTheme from 'styles/theme/defaultTheme'
@@ -24,11 +27,13 @@ export default class Welcome extends React.Component {
         <button
           onClick={() => this.toggle()}
           children="x-ray"
-          style={{ position: 'absolute', right: 10, bottom: 10 }}
+          style={{ position: 'absolute', right: 10, bottom: 10, zIndex: 9999 }}
         />
-        <XRay disabled={this.state.xray} color="#f0f" backgroundColor="#200020">
-          <Wrapper minHeight={this.state.xray}>{this.props.children}</Wrapper>{' '}
-        </XRay>
+        <Wrapper minHeight={this.state.xray}>
+          <XRay className="xxx" disabled={this.state.xray} color="#f0f" backgroundColor="#200020">
+            {this.props.children}
+          </XRay>
+        </Wrapper>
       </ThemeProvider>
     )
   }
