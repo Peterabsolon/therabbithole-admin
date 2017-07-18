@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Media, Image } from 'rebass'
+import { Box, Media } from 'rebass'
 import styled from 'styled-components'
 
 const imageWidth = 80
@@ -19,7 +19,7 @@ const ImageWrapper = styled(Box)`
   background: url(${props => props.urlToImage});
   background-size: cover;
 `
-const FeedItem = ({ urlToImage, title }) =>
+const FeedItem = ({ article: { urlToImage, title } }) =>
   (<Box pr={2} style={{ position: 'relative' }}>
     <Media>
       {urlToImage && <ImageWrapper urlToImage={urlToImage} />}
