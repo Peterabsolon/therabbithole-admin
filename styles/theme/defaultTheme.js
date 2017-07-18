@@ -1,7 +1,7 @@
 const defaultTheme = {
   breakpoints: [40, 52, 64],
   space: [0, 6, 12, 18, 24, 30, 36],
-  fontSizes: [12, 16, 18, 24, 36, 48, 72],
+  fontSizes: [12, 14, 16, 18, 24, 36, 48],
   weights: [400, 600],
   colors: {
     black: '#402020',

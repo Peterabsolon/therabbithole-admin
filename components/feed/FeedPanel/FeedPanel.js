@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Panel, PanelHeader, Subhead, PanelFooter, Box } from 'rebass'
+import { Panel, PanelHeader, Text, PanelFooter, Box, Toolbar, NavLink } from 'rebass'
 
 // UI
 import FeedItem from 'components/feed/FeedItem/FeedItem'
@@ -15,11 +15,16 @@ const FeedPanel = ({ source, feed = [], load, isLoading, remove }) =>
       <PanelHeader color="white" bg="primary">
         {source.name} {isLoading && 'loading'}
       </PanelHeader>
-      <Box p={3} color="black" bg="white">
+      <Box color="black" bg="white">
         {feed.map(item => <FeedItem key={item.title} {...item} />)}
       </Box>
-      <PanelFooter color="white" bg="primary">
-        Footer
+      <PanelFooter p={0} color="primary" bg="white">
+        <Toolbar color="black" bg="white">
+          <Text fontSize={0}>Last Update: 2 minutas ago</Text>
+          <NavLink ml="auto" disabled onClick={() => load()}>
+            Update
+          </NavLink>
+        </Toolbar>
       </PanelFooter>
     </Panel>
   </div>)

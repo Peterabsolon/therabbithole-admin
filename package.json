@@ -7,7 +7,7 @@
     "prod": "next build && next start",
     "build": "next build",
     "start": "NODE_PATH=. NODE_ENV=production node server.js",
-    "heroku-postbuild": "next build",
+    "heroku-postbuild": "next build && npm run build-storybook",
     "analyze": "cross-env ANALYZE=1 NODE_PATH=. NODE_ENV=production next build",
     "test": "jest",
     "storybook": "start-storybook -p 6006",

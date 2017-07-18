@@ -9,6 +9,8 @@ const Wrapper = styled.footer`
     min-height: 100vh;
   }
 `
+
+const XRayButton = styled.button`background: yellow;`
 // Theme
 import defaultTheme from 'styles/theme/defaultTheme'
 
@@ -24,7 +26,7 @@ export default class Welcome extends React.Component {
   render() {
     return (
       <ThemeProvider theme={defaultTheme}>
-        <button
+        <XRayButton
           onClick={() => this.toggle()}
           children="x-ray"
           style={{ position: 'absolute', right: 10, bottom: 10, zIndex: 9999 }}
