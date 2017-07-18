@@ -5,6 +5,8 @@ import { Panel, PanelHeader, Text, PanelFooter, Box, Toolbar, NavLink } from 're
 
 // UI
 import FeedItem from 'components/feed/FeedItem'
+import IconRefresh from 'react-icons/lib/md/refresh'
+import IconRemove from 'react-icons/lib/md/clear'
 
 // const Button = styled.button`
 //   background: red;
@@ -13,8 +15,16 @@ import FeedItem from 'components/feed/FeedItem'
 const FeedPanel = ({ feed: { source, feed = [], load, isLoading, remove } }) =>
   (<div>
     <Panel color="primary">
-      <PanelHeader color="white" bg="primary">
-        {source.name} {isLoading && 'loading'}
+      <PanelHeader p={0} color="white" bg="primary">
+        <Toolbar color="white" bg="primary" pr={0}>
+          {source.name} {isLoading && 'loading'}
+          <NavLink ml="auto" py={1} onClick={() => load()}>
+            <IconRefresh width={28} height={28} color="#fff" />
+          </NavLink>
+          <NavLink fpy={1} onClick={() => remove()}>
+            <IconRemove width={28} height={28} color="#fff" />
+          </NavLink>
+        </Toolbar>
       </PanelHeader>
       <Box color="black" bg="white">
         {feed.map(item => <FeedItem key={item.title} article={item} />)}
@@ -22,12 +32,6 @@ const FeedPanel = ({ feed: { source, feed = [], load, isLoading, remove } }) =>
       <PanelFooter p={0} color="primary" bg="white">
         <Toolbar color="black" bg="white">
           <Text fontSize={0}>Last Update: 2 minutas ago</Text>
-          <NavLink ml="auto" onClick={() => load()}>
-            Update
-          </NavLink>
-          <NavLink ml="auto" onClick={() => remove()}>
-            Remove
-          </NavLink>
         </Toolbar>
       </PanelFooter>
     </Panel>

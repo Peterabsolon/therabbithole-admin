@@ -1,16 +1,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Button, Select, Heading, Flex, Box } from 'rebass'
+import { Select, Flex, Box } from 'rebass'
 
-const AppState = ({ appStore: { sourcesStore, articlesStore }, appStore }) =>
+const SourceSelect = ({ appStore: { sourcesStore, articlesStore } }) =>
   (<div>
     <Flex>
-      <Box px={3} width={[1, 1 / 2, 1 / 3]}>
-        <Heading mb={3} mt={3}>
-          Sources {sourcesStore.sources.length}
-        </Heading>
+      <Box p={2} width={[1, 1 / 2, 1 / 3]}>
         <Select
-          mb={3}
           bg="white"
           onChange={el => articlesStore.addSource(sourcesStore.sources[el.target.value])}
         >
@@ -20,9 +16,8 @@ const AppState = ({ appStore: { sourcesStore, articlesStore }, appStore }) =>
             </option>)
           )}
         </Select>
-        <Button bg="action" mb={3} onClick={() => appStore.reset()} children="Reset app" />
       </Box>
     </Flex>
   </div>)
 
-export default inject('appStore')(observer(AppState))
+export default inject('appStore')(observer(SourceSelect))

@@ -2,14 +2,14 @@ import Layout from 'layouts/Main'
 
 import React from 'react'
 import initApp from 'helpers/hoc/initApp'
-import AppState from 'components/AppState/AppState'
+import SourceSelect from 'components/feed/SourceSelect'
 import Feed from 'components/feed/Feed'
 
 class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <AppState />
+        <SourceSelect />
         <Feed />
       </Layout>
     )

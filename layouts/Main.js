@@ -1,23 +1,21 @@
 import Head from 'next/head'
 import Wrapper from './Wrapper'
-import Nav from 'components/Nav'
+import Header from 'components/layout/Header'
 import Footer from 'components/Footer'
 import { Flex, Box } from 'rebass'
 
 export default ({ children, title = 'Mobx starter' }) =>
-  <Wrapper>
+  (<Wrapper>
+    <Header />
     <Head>
       <title>
         {title}
       </title>
     </Head>
-    <header>
-      <Nav />
-    </header>
 
     <main>
       {children}
     </main>
 
     <Footer>Footer</Footer>
-  </Wrapper>
+  </Wrapper>)

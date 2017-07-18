@@ -20,8 +20,8 @@ const ImageWrapper = styled(Box)`
   background-size: cover;
 `
 const FeedItem = ({ article: { urlToImage, title } }) =>
-  (<Box pr={2} style={{ position: 'relative' }}>
-    <Media>
+  (<Box p={1} pr={2}>
+    <Media style={{ position: 'relative' }}>
       {urlToImage && <ImageWrapper urlToImage={urlToImage} />}
       <FeedHeading>
         {title}
