@@ -13,6 +13,12 @@
     react-inspector "^2.1.1"
     uuid "^3.1.0"
 
+"@storybook/addon-backgrounds@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-3.0.0.tgz#f59d55bc66abf3cede54b85b5b03f8153c684da9"
+  dependencies:
+    object-assign "^4.1.0"
+
 "@storybook/addon-info@^3.1.9":
   version "3.1.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-3.1.9.tgz#e2c096c27257a864ff6936a8dbca13d6a42ee461"
