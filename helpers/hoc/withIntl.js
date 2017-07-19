@@ -3,9 +3,8 @@ import t from 'prop-types'
 import { addLocaleData, IntlProvider } from 'react-intl'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 import localeData from 'locales/localeData'
-// server-side: for performance, keep in memory messages for different locales
+
 const intlCache = new Map()
-//  client-side: remember the user's locale messages across page changes
 let locale
 let messages
 
