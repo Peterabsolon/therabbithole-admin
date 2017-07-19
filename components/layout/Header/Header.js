@@ -1,16 +1,16 @@
 import React from 'react'
-import Link from 'next/link'
+import { Link } from 'routes'
 import { Toolbar, NavLink } from 'rebass'
 
 const Header = () =>
   (<Toolbar color="white" bg="secondary" pr={0}>
-    <Link href="/">
+    <Link route="/cs/">
       <NavLink>Feed</NavLink>
     </Link>
-    <Link href="/about">
+    <Link route="/cs/about">
       <NavLink>About</NavLink>
     </Link>
-    <Link href="/playground">
+    <Link route="/cs/playground">
       <NavLink>Playground</NavLink>
     </Link>
   </Toolbar>)
