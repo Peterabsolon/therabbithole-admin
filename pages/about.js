@@ -1,16 +1,14 @@
-import Layout from 'layouts/Main'
-
 import React from 'react'
-import initApp from 'helpers/hoc/initApp'
+import { pageWithoutLayout } from 'helpers/hoc/initPage'
 
 class Index extends React.Component {
   render() {
     return (
-      <Layout>
-        <h1>Mobx-state-tree starter kit</h1>
-      </Layout>
+      <div>
+        <h1>Page without layout</h1>
+      </div>
     )
   }
 }
 
-export default initApp(Index)
+export default pageWithoutLayout(Index)

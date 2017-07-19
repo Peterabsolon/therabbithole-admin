@@ -16,7 +16,7 @@ const FeedPanel = ({ item: { source, feed = [], load, isLoading, remove } }) =>
           <NavLink ml="auto" py={1} onClick={() => load()}>
             <IconRefresh width={28} height={28} color="#fff" />
           </NavLink>
-          <NavLink fpy={1} onClick={() => remove()}>
+          <NavLink py={1} onClick={() => remove()}>
             <IconRemove width={28} height={28} color="#fff" />
           </NavLink>
         </Toolbar>

@@ -1,10 +1,9 @@
 import React from 'react'
-import Layout from 'layouts/Main'
-import initApp from 'helpers/hoc/initApp'
+import initPage from 'helpers/hoc/initPage'
 
 const Index = () =>
-  (<Layout>
+  (<div>
     <h1>Playground</h1>
-  </Layout>)
+  </div>)
 
-export default initApp(Index)
+export default initPage(Index)

@@ -18,6 +18,19 @@ app.prepare().then(() => {
     res.sendFile(path.join(__dirname, '/storybook-static/index.html'))
   })
 
+  server.get('/', (req, res) => {
+    let lang = 'en'
+
+    if (req.headers['accept-language']) {
+      lang = req.headers['accept-language'].slice(0, 2)
+    }
+
+    if (lang !== 'cs' && 'lang' !== 'en') {
+      lang = 'en'
+    }
+    return res.redirect(301, `/${lang}/`)
+  })
+
   server.use(handler)
 
   server.get('*', (req, res) => handle(req, res))

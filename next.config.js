@@ -8,6 +8,10 @@ module.exports = {
   webpack: (config, { dev }) => {
     // Perform customizations to webpack config
 
+    config.externals = {
+      fs: 'fs',
+    }
+
     // Important: return the modified config
     // config.resolve.modules = [path.resolve(__dirname, "components"), "node_modules"]
     if (ANALYZE) {
