@@ -8,7 +8,7 @@ const Feed = ({ appStore: { articlesStore } }) =>
     <Flex>
       {articlesStore.list.map(item =>
         (<Box key={item.source.id} px={2} width={[1, 1 / 2, 1 / 3]}>
-          <FeedPanel feed={item} />
+          <FeedPanel item={item} />
         </Box>)
       )}
     </Flex>

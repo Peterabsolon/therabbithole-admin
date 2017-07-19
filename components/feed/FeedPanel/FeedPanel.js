@@ -12,7 +12,7 @@ import IconRemove from 'react-icons/lib/md/clear'
 //   background: red;
 //   ${props => console.log(props.theme)};
 // `
-const FeedPanel = ({ feed: { source, feed = [], load, isLoading, remove } }) =>
+const FeedPanel = ({ item: { source, feed = [], load, isLoading, remove } }) =>
   (<div>
     <Panel color="primary">
       <PanelHeader p={0} color="white" bg="primary">
@@ -38,7 +38,7 @@ const FeedPanel = ({ feed: { source, feed = [], load, isLoading, remove } }) =>
   </div>)
 
 FeedPanel.defaultProps = {
-  feed: {
+  item: {
     source: {
       name: '<Source Title>',
     },
