@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import Wrapper from './Wrapper'
 import Header from 'components/layout/Header'

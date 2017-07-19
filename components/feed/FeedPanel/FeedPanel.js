@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import { Panel, PanelHeader, Text, PanelFooter, Box, Toolbar, NavLink } from 'rebass'
 
@@ -8,10 +7,6 @@ import FeedItem from 'components/feed/FeedItem'
 import IconRefresh from 'react-icons/lib/md/refresh'
 import IconRemove from 'react-icons/lib/md/clear'
 
-// const Button = styled.button`
-//   background: red;
-//   ${props => console.log(props.theme)};
-// `
 const FeedPanel = ({ item: { source, feed = [], load, isLoading, remove } }) =>
   (<div>
     <Panel color="primary">
