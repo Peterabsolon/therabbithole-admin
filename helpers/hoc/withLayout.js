@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Header from '~/components/layout/Header'
 import Footer from '~/components/layout/Footer'
 import { FormattedMessage } from 'react-intl'
-
+import { Box } from 'rebass'
 import styled from 'styled-components'
 
 const Wrapper = styled.footer`
@@ -28,7 +28,9 @@ export default ComposedComponent =>
           </Head>
 
           <main>
-            <ComposedComponent {...this.props} />
+            <Box p={1}>
+              <ComposedComponent {...this.props} />
+            </Box>
           </main>
 
           <Footer>
@@ -38,6 +40,8 @@ export default ComposedComponent =>
                 author: 'Vladimír Vaněk',
               }}
             />
+            {' - '}
+            <a href="/cs/">cs</a> | <a href="/en/">en</a>
           </Footer>
         </Wrapper>
       )
