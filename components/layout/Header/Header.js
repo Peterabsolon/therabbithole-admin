@@ -4,7 +4,7 @@ import { Toolbar, NavLink } from 'rebass'
 
 const Header = () =>
   (<Toolbar color="white" bg="secondary" pr={0}>
-    <Link route="/cs/">
+    <Link route="/cs/" prefetch>
       <NavLink>Feed</NavLink>
     </Link>
     <Link route="/cs/about">

@@ -13,12 +13,18 @@ export const SourcesStore = types.model(
   {
     isLoading: types.optional(types.boolean, true),
     sources: types.array(Source),
+    get isEmpty() {
+      return this.sources.length === 0
+    },
     get app() {
       return getParent(this)
     },
   },
   {
     load() {
+      if (!this.isEmpty) {
+        return Promise.resolve({})
+      }
       this.markLoading(true)
       return this.app.apiClient.get('/sources?language=en').then(this.receiveJson)
     },

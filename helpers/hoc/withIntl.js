@@ -28,6 +28,7 @@ export default ComposedComponent =>
         }
         messages = intlCache.get(locale)
       }
+      console.log('sub', await loadGetInitialProps(ComposedComponent, ctx))
       return {
         locale,
         messages,
