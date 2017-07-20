@@ -9,7 +9,6 @@ export default class ApiClient {
         this[method] = (path, { params, data } = {}) =>
           new Promise(resolve => {
             const filename = 'get-sources'
-            console.log(params, data)
             import(`../${filename}.js`).then(module => {
               resolve(module.default)
             })

@@ -16,7 +16,6 @@ const initialSnapshot = {}
 
 onAction(stores.appStore, action => {
   if (action.name === 'reset') {
-    console.log('run', initialSnapshot)
     applySnapshot(stores.appStore, { title: 'restart' })
   }
 })
