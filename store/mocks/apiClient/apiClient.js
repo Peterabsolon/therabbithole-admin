@@ -6,8 +6,9 @@ export default class ApiClient {
     methods.forEach(
       // eslint-disable-next-line no-return-assign
       method =>
-        this[method] = (path, { params, data } = {}) =>
+        this[method] = (path, { params } = {}) =>
           new Promise(resolve => {
+            console.log(path, params)
             const filename = 'get-sources'
             import(`../${filename}.js`).then(module => {
               resolve(module.default)

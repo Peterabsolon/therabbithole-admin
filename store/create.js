@@ -1,5 +1,5 @@
 import { AppStore } from './models/AppStore'
-import { onAction, applySnapshot } from 'mobx-state-tree'
+// import { onAction, applySnapshot } from 'mobx-state-tree'
 import config from '~/config'
 
 import ApiClient from '~/helpers/store/apiClient'

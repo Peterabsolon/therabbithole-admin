@@ -1,3 +1,4 @@
+/* eslint-disable no-process-env */
 require('./helpers/dotenv')
 
 const express = require('express')

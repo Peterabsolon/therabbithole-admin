@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
-import { applySnapshot, getSnapshot } from 'mobx-state-tree'
+import { getSnapshot } from 'mobx-state-tree'
 import makeUrl from '~/helpers/makeurl'
 import { Provider } from 'mobx-react'
 import { initStore } from '~/store/create'
