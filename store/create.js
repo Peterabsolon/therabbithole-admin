@@ -8,17 +8,15 @@ const client = new ApiClient()
 
 let store = null
 
-const stores = {
-  appStore: AppStore.create({ title: 'Mobx Starter kit' }, { apiClient: client }),
-}
-
-const initialSnapshot = {}
-
-onAction(stores.appStore, action => {
-  if (action.name === 'reset') {
-    applySnapshot(stores.appStore, { title: 'restart' })
-  }
+const stores = (isServer, initialValues) => ({
+  appStore: AppStore.create(initialValues || { title: 'Mobx Starter kit' }, { apiClient: client }),
 })
+
+// onAction(stores.appStore, action => {
+//   if (action.name === 'reset') {
+//     applySnapshot(stores.appStore, { title: 'restart' })
+//   }
+// })
 
 if (!config.isProduction) {
   /* eslint-disable global-require */
@@ -26,12 +24,12 @@ if (!config.isProduction) {
   // devtools.connectReduxDevtools(require('remotedev'), stores.appStore)
 }
 
-export function initStore(isServer) {
+export function initStore(isServer, initialValues) {
   if (isServer && typeof window === 'undefined') {
-    return stores
+    return stores(isServer, initialValues)
   }
   if (store === null) {
-    store = stores
+    store = stores(isServer, initialValues)
   }
   return store
 }

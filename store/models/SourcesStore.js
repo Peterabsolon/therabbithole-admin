@@ -20,7 +20,7 @@ export const SourcesStore = types.model(
   {
     load() {
       this.markLoading(true)
-      this.app.apiClient.get('/sources?language=en').then(this.receiveJson)
+      return this.app.apiClient.get('/sources?language=en').then(this.receiveJson)
     },
     receiveJson(json) {
       this.markLoading(false)
@@ -32,6 +32,9 @@ export const SourcesStore = types.model(
     updateSources(json) {
       this.sources = []
       json.map(item => this.sources.push(item))
+    },
+    afterAttach() {
+      // this.load()
     },
     afterCreate() {
       // if (typeof window !== 'undefined') {

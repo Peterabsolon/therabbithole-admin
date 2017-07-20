@@ -29,12 +29,12 @@ export const AppStore = types.model(
     markLoading(loading) {
       this.isLoading = loading
     },
-    reset() {
-      this.sourcesStore.load()
+    initPageIndex() {
+      return this.sourcesStore.load()
     },
     afterCreate() {
       if (typeof window === 'undefined') {
-        this.reset()
+        // this.reset()
       }
       if (config.localStorage) {
         // storage.persist(this)
