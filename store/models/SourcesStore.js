@@ -34,9 +34,9 @@ export const SourcesStore = types.model(
       json.map(item => this.sources.push(item))
     },
     afterCreate() {
-      if (typeof window !== 'undefined') {
-        this.load()
-      }
+      // if (typeof window !== 'undefined') {
+      // this.load()
+      // }
     },
   }
 )

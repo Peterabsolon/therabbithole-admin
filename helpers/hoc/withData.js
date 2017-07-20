@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
+import { applySnapshot, getSnapshot } from 'mobx-state-tree'
 
 import { Provider } from 'mobx-react'
 import { initStore } from '~/store/create'
@@ -11,13 +12,15 @@ export default ComposedComponent =>
       const subProps = await loadGetInitialProps(ComposedComponent, ctx)
       const isServer = Boolean(ctx.req)
       const { pathname, query } = ctx
+
       const store = initStore(isServer, ctx.pathname, ctx.query)
-      return { store, url: { query, pathname }, ...subProps }
+      return { snapshot: getSnapshot(store.appStore), url: { query, pathname }, ...subProps }
     }
 
     constructor(props) {
       super(props)
       this.store = initStore(false)
+      applySnapshot(this.store.appStore, props.snapshot)
     }
 
     render() {

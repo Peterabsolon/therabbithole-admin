@@ -33,6 +33,9 @@ export const AppStore = types.model(
       this.sourcesStore.load()
     },
     afterCreate() {
+      if (typeof window === 'undefined') {
+        this.reset()
+      }
       if (config.localStorage) {
         // storage.persist(this)
       }
