@@ -1,12 +1,10 @@
-import { types, getSnapshot, applySnapshot, getEnv } from 'mobx-state-tree'
+import { types, getEnv } from 'mobx-state-tree'
 import { SourcesStore } from './SourcesStore'
 import { RouterStore } from './RouterStore'
 import { ArticlesStore } from './ArticlesStore'
-import config from 'config'
+import config from '~/config'
 
-import storage from 'store/helpers/storage'
-
-const initial = {}
+// import storage from 'store/helpers/storage'
 
 export const AppStore = types.model(
   'AppStore',

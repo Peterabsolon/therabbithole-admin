@@ -13,6 +13,7 @@ const persist = (model, data, key = 'snap') => {
     applySnapshot(model, JSON.parse(received))
   }
   model.markLoading(false)
+  return true
 }
 
 export default {

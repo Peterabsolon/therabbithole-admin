@@ -1,7 +1,11 @@
 import React from 'react'
+
+// mobx
 import { inject, observer } from 'mobx-react'
+
+// UI
 import { Flex, Box } from 'rebass'
-import FeedPanel from 'components/feed/FeedPanel'
+import FeedPanel from '~/components/feed/FeedPanel'
 
 const Feed = ({ appStore: { articlesStore } }) =>
   (<Box my={2}>

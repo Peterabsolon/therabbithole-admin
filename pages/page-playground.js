@@ -1,5 +1,5 @@
 import React from 'react'
-import initPage from 'helpers/hoc/initPage'
+import initPage from '~/helpers/hoc/initPage'
 
 const Index = () =>
   (<div>

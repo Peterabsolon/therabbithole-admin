@@ -17,18 +17,24 @@
     "sourceType": "module"
   },
   "settings": {
-    "import/parser": "babel-eslint",
-    "import/resolve": {
-      "moduleDirectory": ["node_modules", "store", "components"]
-    }
+    "import/resolver": {
+      "babel-module": {}
+    },
+    "import/parser": "babel-eslint"
   },
   "parser": "babel-eslint",
   "rules": {
     "react/prop-types": 0,
     "max-len": 0,
-    "template-tag-spacing": 0
+    "template-tag-spacing": 0,
+    "react/jsx-closing-tag-location": 0,
+    "id-length": 0,
+    "import/no-anonymous-default-export": 0,
+    "react/prefer-stateless-function": 0,
+    "require-await": 0
   },
   "globals": {
     "STORYBOOK": true
-  }
+  },
+  "plugins": ["import"]
 }

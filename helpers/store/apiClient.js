@@ -10,18 +10,20 @@ function formatUrl(path) {
   // }
   // Prepend `/api` to relative URL, to proxy to API server.
 
+  // eslint-disable-next-line no-process-env
   return process.env.API_URL + path
 }
 
 export default class ApiClient {
+  // eslint-disable-next-line no-unused-vars
   constructor(req) {
     methods.forEach(
+      // eslint-disable-next-line no-return-assign
       method =>
         this[method] = (path, { params, data } = {}) =>
           new Promise((resolve, reject) => {
             const request = superagent[method](formatUrl(path))
 
-            
             if (params) {
               request.query(params)
             }

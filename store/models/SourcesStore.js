@@ -1,4 +1,4 @@
-import { types, getParent, onSnapshot } from 'mobx-state-tree'
+import { types, getParent } from 'mobx-state-tree'
 
 export const Source = types.model('Source', {
   id: types.identifier(),
@@ -31,9 +31,7 @@ export const SourcesStore = types.model(
     },
     updateSources(json) {
       this.sources = []
-      json.map(item => {
-        this.sources.push(item)
-      })
+      json.map(item => this.sources.push(item))
     },
     afterCreate() {
       if (typeof window !== 'undefined') {

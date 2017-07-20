@@ -1,6 +1,6 @@
 import { configure, setAddon, addDecorator } from '@storybook/react'
 import infoAddon from '@storybook/addon-info'
-import InitStories from 'helpers/hoc/initStories'
+import InitStories from '~/helpershelpers/hoc/initStories'
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import backgrounds from '@storybook/addon-backgrounds'

@@ -1,8 +1,8 @@
 import { AppStore } from './models/AppStore'
-import { onAction, getSnapshot, applySnapshot } from 'mobx-state-tree'
-import config from 'config'
+import { onAction, applySnapshot } from 'mobx-state-tree'
+import config from '~/config'
 
-import ApiClient from 'helpers/store/apiClient'
+import ApiClient from '~/helpers/store/apiClient'
 
 const client = new ApiClient()
 
@@ -27,7 +27,7 @@ if (!config.isProduction) {
   // devtools.connectReduxDevtools(require('remotedev'), stores.appStore)
 }
 
-export function initStore(isServer, pathname, query) {
+export function initStore(isServer) {
   if (isServer && typeof window === 'undefined') {
     return stores
   }

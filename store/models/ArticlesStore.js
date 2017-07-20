@@ -1,4 +1,4 @@
-import { types, getParent, onSnapshot, destroy, isAlive, detach, getEnv } from 'mobx-state-tree'
+import { types, getParent, destroy, getEnv } from 'mobx-state-tree'
 import { Source } from './SourcesStore'
 
 export const FeedItem = types.model('FeedItem', {
@@ -39,9 +39,7 @@ export const ArticleList = types.model(
     },
     updateSources(json) {
       this.feed = []
-      json.map(item => {
-        this.feed.push({ id: this.source.id, ...item })
-      })
+      json.map(item => this.feed.push({ id: this.source.id, ...item }))
     },
 
     afterAttach() {
@@ -69,7 +67,7 @@ export const ArticlesStore = types.model(
   },
   {
     addSource(source) {
-      const entry = this.list.find(entry => entry.id === source)
+      const entry = this.list.find(item => item.id === source)
       if (!entry) {
         this.list.push({ source })
       }

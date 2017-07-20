@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import { Panel, PanelHeader, Text, PanelFooter, Box, Toolbar, NavLink } from 'rebass'
 
 // UI
-import FeedItem from 'components/feed/FeedItem'
+import FeedItem from '~/components/feed/FeedItem'
 import IconRefresh from 'react-icons/lib/md/refresh'
 import IconRemove from 'react-icons/lib/md/clear'
 

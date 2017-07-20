@@ -10,6 +10,7 @@
     "heroku-postbuild": "next build && npm run build-storybook",
     "analyze": "cross-env ANALYZE=1 NODE_PATH=. NODE_ENV=production next build",
     "test": "jest",
+    "lint": "eslint -c .eslintrc components helpers pages store",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o ${PWD}/storybook-static"
   },
@@ -28,6 +29,8 @@
     "cross-env": "^5.0.1",
     "dotenv": "^4.0.0",
     "eslint": "^4.2.0",
+    "eslint-import-resolver-babel-module": "^3.0.0",
+    "eslint-plugin-import": "^2.7.0",
     "express": "^4.15.3",
     "fs": "^0.0.1-security",
     "jest": "^20.0.4",

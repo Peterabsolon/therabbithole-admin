@@ -1,5 +1,5 @@
 import { AppStore } from '../AppStore'
-import ApiClient from 'store/mocks/apiClient/apiClient'
+import ApiClient from '~/store/mocks/apiClient/apiClient'
 import { when } from 'mobx'
 
 const client = new ApiClient()

@@ -1,8 +1,8 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 
 import { Provider } from 'mobx-react'
-import { initStore } from 'store/create'
+import { initStore } from '~/store/create'
 import DevTools from 'mobx-react-devtools'
 
 export default ComposedComponent =>

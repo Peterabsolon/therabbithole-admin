@@ -1,4 +1,4 @@
-import { types, getParent, onSnapshot } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree'
 
 export const RouterStore = types.model(
   'Router',

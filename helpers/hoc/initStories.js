@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider as ThemeProvider } from 'rebass'
 import XRay from 'react-x-ray'
 import styled from 'styled-components'
+import defaultTheme from '~/styles/theme/defaultTheme'
 
 const Wrapper = styled.footer`
   min-height: ${props => props.minHeight ? 'auto' : '100vh'};
@@ -12,7 +13,6 @@ const Wrapper = styled.footer`
 
 const XRayButton = styled.button`background: yellow;`
 // Theme
-import defaultTheme from 'styles/theme/defaultTheme'
 
 export default class Welcome extends React.Component {
   state = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { pageWithoutLayout } from 'helpers/hoc/initPage'
+import { pageWithoutLayout } from '~/helpers/hoc/initPage'
 
 class Index extends React.Component {
   render() {

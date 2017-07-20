@@ -1,6 +1,7 @@
+import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import 'styles/global-styles'
+import '~/styles/global-styles'
 
 export default class SiteDocument extends Document {
   render() {

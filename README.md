@@ -2,14 +2,15 @@
 
 # TODO
 
-- [ ] eslint resolver
-- [ ] .env.production
-- [ ] global config
+- [x] eslint resolver
+- [x] .env.production
+- [x] global config
 - [ ] mobx tree router sync
-- [ ] styled components (grid, structure, ui)
+- [x] styled components (structure, ui)
+- [ ] grid
 - [x] css normalizer ( -> injectGlobal)
 - [x] jest
-- [ ] setup jest client mockups
+- [x] setup jest client mockups
 - [ ] service worker generator
 - [ ] nightwatch screenshot tests
 - [x] storybook

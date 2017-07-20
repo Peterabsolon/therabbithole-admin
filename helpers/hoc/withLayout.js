@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
-import Header from 'components/layout/Header'
-import Footer from 'components/layout/Footer'
-import { Flex, Box } from 'rebass'
+import Header from '~/components/layout/Header'
+import Footer from '~/components/layout/Footer'
 import { FormattedMessage } from 'react-intl'
 
 import styled from 'styled-components'

@@ -9,10 +9,13 @@
         "preprocess": false
       }
     ],
+
     [
       "module-resolver",
       {
-        "root": ["./"]
+        "alias": {
+          "~": "./"
+        }
       }
     ]
   ],

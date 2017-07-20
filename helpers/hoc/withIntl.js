@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import t from 'prop-types'
 import { addLocaleData, IntlProvider } from 'react-intl'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
-import localeData from 'locales/localeData'
+import localeData from '~/locales/localeData'
 
 const intlCache = new Map()
 let locale
@@ -22,7 +22,7 @@ export default ComposedComponent =>
         locale = ctx.query.lang || 'en'
         if (!intlCache.has(locale)) {
           const messageFile = require.resolve(`../../locales/${locale}.json`)
-          // eslint-disable-next-line global-require
+          // eslint-disable-next-line global-require, no-sync
           messages = JSON.parse(require('fs').readFileSync(messageFile, 'utf8'))
           intlCache.set(locale, messages)
         }
