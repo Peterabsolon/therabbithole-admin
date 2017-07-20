@@ -15,7 +15,6 @@ export default ComposedComponent =>
       const isServer = Boolean(ctx.req)
       const { pathname, query } = ctx
 
-      console.log('new init', subProps)
       const store = initStore(isServer)
       if (typeof store.appStore[page] === 'function') {
         await store.appStore[page]().catch(err => {
@@ -27,7 +26,6 @@ export default ComposedComponent =>
 
     constructor(props) {
       super(props)
-      console.log(props.snapshot)
       this.store = initStore(false, props.snapshot)
     }
 

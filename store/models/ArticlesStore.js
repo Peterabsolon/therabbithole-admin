@@ -37,8 +37,11 @@ export const ArticleList = types.model(
     markLoading(loading) {
       this.isLoading = loading
     },
-    updateSources(json) {
+    reset() {
       this.feed = []
+    },
+    updateSources(json) {
+      this.reset()
       json.map(item => this.feed.push({ id: this.source.id, ...item }))
     },
 
