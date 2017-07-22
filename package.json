@@ -51,7 +51,7 @@
     "react-intl": "^2.3.0",
     "react-test-renderer": "^15.6.1",
     "react-x-ray": "^1.0.0-2",
-    "rebass": "^1.0.0-5",
+    "rebass": "^1.0.3",
     "recompose": "^0.24.0",
     "remotedev": "^0.2.7",
     "storybook-addon-smart-knobs": "^3.0.1",
