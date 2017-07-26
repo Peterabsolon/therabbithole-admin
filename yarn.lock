@@ -4540,9 +4540,9 @@ mobx-react@^4.2.2:
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
-mobx-state-tree@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-0.9.3.tgz#a8d34fa3929926a0eda5ed528864758520427b3a"
+mobx-state-tree@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-0.9.4.tgz#8198a1822b9375e592190690c8e825fbbf2f0167"
 
 mobx@^2.3.4:
   version "2.7.0"
@@ -4602,9 +4602,9 @@ next-routes@^1.0.40:
   dependencies:
     path-to-regexp "^1.7.0"
 
-next@^3.0.1-beta.18:
-  version "3.0.1-beta.18"
-  resolved "https://registry.yarnpkg.com/next/-/next-3.0.1-beta.18.tgz#fa09e59c54a2c1ed23bbc89746ed74545bebcaa0"
+next@^3.0.1-beta.19:
+  version "3.0.1-beta.19"
+  resolved "https://registry.yarnpkg.com/next/-/next-3.0.1-beta.19.tgz#4871f5597b99831913f64eae2e0f287ec80a7a4e"
   dependencies:
     ansi-html "0.0.7"
     babel-core "6.25.0"
