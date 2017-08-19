@@ -8,44 +8,36 @@ export const Source = types.model('Source', {
   url: types.string,
 })
 
-export const SourcesStore = types.model(
-  'SourcesStore',
-  {
+export const SourcesStore = types
+  .model('SourcesStore', {
     isLoading: types.optional(types.boolean, true),
     sources: types.array(Source),
+  })
+  .views(self => ({
     get isEmpty() {
-      return this.sources.length === 0
+      return self.sources.length === 0
     },
     get app() {
-      return getParent(this)
+      return getParent(self)
     },
-  },
-  {
+  }))
+  .actions(self => ({
     load() {
-      if (!this.isEmpty) {
+      if (!self.isEmpty) {
         return Promise.resolve({})
       }
-      this.markLoading(true)
-      return this.app.apiClient.get('/sources?language=en').then(this.receiveJson)
+      self.markLoading(true)
+      return self.app.apiClient.get('/sources?language=en').then(self.receiveJson)
     },
     receiveJson(json) {
-      this.markLoading(false)
-      this.updateSources(json.sources)
+      self.markLoading(false)
+      self.updateSources(json.sources)
     },
     markLoading(loading) {
-      this.isLoading = loading
+      self.isLoading = loading
     },
     updateSources(json) {
-      this.sources = []
-      json.map(item => this.sources.push(item))
+      self.sources = []
+      json.map(item => self.sources.push(item))
     },
-    afterAttach() {
-      // this.load()
-    },
-    afterCreate() {
-      // if (typeof window !== 'undefined') {
-      // this.load()
-      // }
-    },
-  }
-)
+  }))

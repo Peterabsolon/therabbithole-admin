@@ -1,18 +1,16 @@
 import { types } from 'mobx-state-tree'
 
-export const RouterStore = types.model(
-  'Router',
-  {
+export const RouterStore = types
+  .model('Router', {
     pathname: types.optional(types.string, ''),
     params: types.optional(types.string, ''),
-  },
-  {
+  })
+  .actions(self => ({
     openContactPage() {
-      this.pathname = '/contact'
+      self.pathname = '/contact'
     },
     init(pathname, params = '') {
-      this.pathname = pathname
-      this.params = params
+      self.pathname = pathname
+      self.params = params
     },
-  }
-)
+  }))

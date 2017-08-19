@@ -31,7 +31,8 @@
     "id-length": 0,
     "import/no-anonymous-default-export": 0,
     "react/prefer-stateless-function": 0,
-    "require-await": 0
+    "require-await": 0,
+    "no-shadow": 0
   },
   "globals": {
     "STORYBOOK": true

@@ -11,69 +11,57 @@ export const FeedItem = types.model('FeedItem', {
   urlToImage: types.string,
 })
 
-export const ArticleList = types.model(
-  'ArticleList',
-  {
+export const ArticleList = types
+  .model('ArticleList', {
     isLoading: types.optional(types.boolean, true),
     source: types.reference(Source),
     feed: types.optional(types.array(FeedItem), []),
-  },
-  {
+  })
+  .actions(self => ({
     load() {
-      this.markLoading(true)
-      getEnv(this).apiClient
-        .get(`/articles?source=${this.source.id}&apiKey=3c6b44553e654c14b9b6a00fe7ba2e0a`)
-        .then(this.receiveJson)
+      self.markLoading(true)
+      getEnv(self).apiClient
+        .get(`/articles?source=${self.source.id}&apiKey=3c6b44553e654c14b9b6a00fe7ba2e0a`)
+        .then(self.receiveJson)
     },
     remove() {
-      console.log('remove', getEnv(this))
+      console.log('remove', getEnv(self))
 
-      destroy(this)
+      destroy(self)
     },
     receiveJson(json) {
-      this.markLoading(false)
-      this.updateSources(json.articles)
+      self.markLoading(false)
+      self.updateSources(json.articles)
     },
     markLoading(loading) {
-      this.isLoading = loading
+      self.isLoading = loading
     },
     reset() {
-      this.feed = []
+      self.feed = []
     },
     updateSources(json) {
-      this.reset()
-      json.map(item => this.feed.push({ id: this.source.id, ...item }))
+      self.reset()
+      json.map(item => self.feed.push({ id: self.source.id, ...item }))
     },
-
     afterAttach() {
-      if (typeof window !== 'undefined') {
-        this.load()
-      }
-      // setInterval(() => this.load(), 10000)
+      self.load()
     },
-    afterCreate() {
-      // if (typeof window !== 'undefined') {
-      //   this.load()
-      // }
-      // setInterval(() => this.load(), 10000)
-    },
-  }
-)
+  }))
 
-export const ArticlesStore = types.model(
-  'ArticlesStore',
-  {
+export const ArticlesStore = types
+  .model('ArticlesStore', {
     list: types.array(ArticleList),
+  })
+  .views(self => ({
     get app() {
-      return getParent(this)
+      return getParent(self)
     },
-  },
-  {
+  }))
+  .actions(self => ({
     addSource(source) {
-      const entry = this.list.find(item => item.id === source)
+      const entry = self.list.find(item => item.id === source)
       if (!entry) {
-        this.list.push({ source })
+        self.list.push({ source })
       }
     },
-  }
-)
+  }))
