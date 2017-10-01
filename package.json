@@ -55,6 +55,7 @@
     "rebass": "^1.0.4",
     "recompose": "^0.25.0",
     "remotedev": "^0.2.7",
+    "store": "^2.0.12",
     "storybook-addon-smart-knobs": "^3.0.1",
     "styled-components": "^2.1.2",
     "styled-normalize": "^2.2.1",
